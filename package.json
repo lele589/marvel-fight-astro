@@ -1,0 +1,30 @@
+{
+  "name": "marvel-fight-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "db": "docker-compose up -d",
+    "model": "sequelize model:create --name $name --attributes $attributes",
+    "migration": "sequelize migration:create --name $name",
+    "migrate:all": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "seed": "sequelize seed:create --name $name",
+    "seed:all": "npx sequelize-cli db:seed:all",
+    "seed:undo": "npx sequelize-cli db:seed:undo"
+  },
+  "dependencies": {
+    "astro": "^3.0.10",
+    "bcryptjs": "^2.4.3",
+    "dayjs": "^1.11.9",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0"
+  }
+}
