@@ -10,7 +10,7 @@ const isItemActive = (path: string) => currentPathName === path;
 <div class="btm-nav">
 	<a href="/"
 		class:list={[ 
-			"text-primary", 
+			"text-primary no-underline", 
 			{ "active": isItemActive('/') }
 		]}
 	>
@@ -19,7 +19,7 @@ const isItemActive = (path: string) => currentPathName === path;
 	</a>
 	<a href="/add-game" 
 		class:list={[ 
-			"text-primary", 
+			"text-primary no-underline", 
 			{ "active": isItemActive('/add-game') }
 		]}>
 		<IconMyData />
@@ -27,7 +27,7 @@ const isItemActive = (path: string) => currentPathName === path;
 	</a>
 	<a href="/settings"
 		class:list={[ 
-			"text-primary", 
+			"text-primary no-underline", 
 			{ "active": isItemActive('/settings') }
 		]}
 	>
