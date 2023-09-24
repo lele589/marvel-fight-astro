@@ -2,10 +2,17 @@
 import H2 from '../app/components/shared/Heading/H2.astro';
 import Layout from '../app/layouts/Layout.astro';
 import Stepper from '../app/components/pages/AddGame/Stepper.astro';
+import Select from '../app/components/pages/AddGame/Select.astro';
+import Step1 from '../app/components/pages/AddGame/Step1.astro';
+
+
 ---
 
 <Layout title="Añadir partida">
 	<main>
 		<Stepper />
+		<form class="mt-7">
+			<Step1 />
+		</form>
 	</main>
 </Layout>
