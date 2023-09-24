@@ -1,7 +1,6 @@
 ---
-import IconComunity from './icons/IconComunity.astro';
-import IconMyData from './icons/IconMyData.astro';
-import IconGames from './icons/IconGames.astro';
+import IconStats from './icons/IconStats.astro';
+import IconMyData from './icons/IconAddGame.astro';
 import IconSettings from './icons/IconSettings.astro';
 
 const currentPathName = new URL(Astro.request.url).pathname;
@@ -15,25 +14,16 @@ const isItemActive = (path: string) => currentPathName === path;
 			{ "active": isItemActive('/') }
 		]}
 	>
-		<IconComunity />
-		 <small>Comunidad</small>
+		<IconStats />
+		 <small>Estadísticas</small>
 	</a>
-	<a href="/my-data" 
+	<a href="/add-game" 
 		class:list={[ 
 			"text-primary", 
-			{ "active": isItemActive('/my-data') }
+			{ "active": isItemActive('/add-game') }
 		]}>
 		<IconMyData />
-		 <small>Mis datos</small>
-	</a>
-	<a href="/games"
-		class:list={[ 
-			"text-primary", 
-			{ "active": isItemActive('/games') }
-		]}
-	>
-		<IconGames />
-		 <small>Partidas</small>
+		 <small>Añadir partida</small>
 	</a>
 	<a href="/settings"
 		class:list={[ 
