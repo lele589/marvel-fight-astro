@@ -1,7 +1,7 @@
 ---
-import IconStats from './icons/IconStats.astro';
-import IconMyData from './icons/IconAddGame.astro';
-import IconSettings from './icons/IconSettings.astro';
+import IconStats from "./icons/IconStats.astro";
+import IconAddGame from "./icons/IconAddGame.astro";
+import IconSettings from "./icons/IconSettings.astro";
 
 const currentPathName = new URL(Astro.request.url).pathname;
 const isItemActive = (path: string) => currentPathName === path;
@@ -22,7 +22,7 @@ const isItemActive = (path: string) => currentPathName === path;
 			"text-primary no-underline", 
 			{ "active": isItemActive('/add-game') }
 		]}>
-		<IconMyData />
+		<IconAddGame />
 		 <small>Añadir partida</small>
 	</a>
 	<a href="/settings"

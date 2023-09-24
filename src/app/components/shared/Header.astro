@@ -1,6 +1,6 @@
 ---
+import H1 from "./Heading/H1.astro";
 import IconGoBack from "./icons/IconGoBack.astro";
-import Heading1 from "./Heading/H1.astro";
 const { title, hasBackButton } = Astro.props;
 // TODO: hasBackButton is
 ---
@@ -18,6 +18,6 @@ const { title, hasBackButton } = Astro.props;
 		"flex-1", 
 		{ "ml-3": !hasBackButton }
 	]}>
-		<Heading1>{title}</Heading1>	
+		<H1>{title}</H1>	
 	</div>
   </div>
