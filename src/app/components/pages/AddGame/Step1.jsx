@@ -1,6 +1,5 @@
----
-import H2 from "../../shared/Heading/H2.astro";
-import Select from "./Select.astro";
+import H2 from "../../shared/Heading/H2.jsx";
+import Select from "./Select.jsx";
 
 const heroesMock = [
 	{
@@ -55,10 +54,15 @@ const aspectsMock = [
 		"color": "#7A8C88",
 	},
 ]
----
 
-<div>
-    <H2>¿Con qué Heroe has jugado?</H2>
-	<Select label="Selecciona un héroe:" options={heroesMock} />
-	<Select label="Selecciona un aspecto:" options={aspectsMock} />
-</div>
+const Step1 = () => {
+	return(
+		<div>
+			<H2>¿Con qué Heroe has jugado?</H2>
+			<Select label="Selecciona un héroe:" options={heroesMock} />
+			<Select label="Selecciona un aspecto:" options={aspectsMock} />
+		</div>
+	)
+}
+
+export default Step1

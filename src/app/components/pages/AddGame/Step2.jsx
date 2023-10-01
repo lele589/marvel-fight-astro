@@ -1,6 +1,5 @@
----
-import H2 from "../../shared/Heading/H2.astro";
-import Select from "./Select.astro";
+import H2 from "../../shared/Heading/H2.jsx";
+import Select from "./Select.jsx";
 
 const villainsMock = [
 	{
@@ -62,11 +61,16 @@ const gameModesMock = [
 		"order": 4,
 	},
 ]
----
 
-<div>
-    <H2>¿Con qué Villano has jugado?</H2>
-	<Select label="Selecciona un villano:" options={villainsMock} />
-	<Select label="Selecciona un conjunto de encuentro:" options={encountersMock} />
-	<Select label="Selecciona la dificultad:" options={gameModesMock} />
-</div>
+const Step2 = () => {
+	return(
+		<div>
+			<H2>¿Con qué Villano has jugado?</H2>
+			<Select label="Selecciona un villano:" options={villainsMock} />
+			<Select label="Selecciona un conjunto de encuentro:" options={encountersMock} />
+			<Select label="Selecciona la dificultad:" options={gameModesMock} />
+		</div>
+	)
+}
+
+export default Step2

@@ -1,7 +1,7 @@
 ---
-import IconStats from "./icons/IconStats.astro";
-import IconAddGame from "./icons/IconAddGame.astro";
-import IconSettings from "./icons/IconSettings.astro";
+import IconAddGame from "./icons/IconAddGame";
+import IconSettings from "./icons/IconSettings";
+import IconStats from "./icons/IconStats";
 
 const currentPathName = new URL(Astro.request.url).pathname;
 const isItemActive = (path: string) => currentPathName === path;

@@ -1,17 +1,16 @@
 ---
-import H1 from "./Heading/H1.astro";
-import IconGoBack from "./icons/IconGoBack.astro";
-const { title, hasBackButton } = Astro.props;
-// TODO: hasBackButton is
----
+import H1 from "./Heading/H1";
+import IconGoBack from "./icons/IconGoBack";
 
+const { hasBackButton, title } = Astro.props;
+---
 
 <div class="navbar">
 	<div class="flex-none">
 	  	{hasBackButton && (
-			<buttonbutton class="btn btn-square btn-ghost">
+			<a class="btn btn-square btn-ghost" href="/">
 				<IconGoBack />
-			</buttonbutton>
+			</a>
 		)}
 	</div>
 	<div class:list={[ 
@@ -20,4 +19,4 @@ const { title, hasBackButton } = Astro.props;
 	]}>
 		<H1>{title}</H1>	
 	</div>
-  </div>
+</div>
