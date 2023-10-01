@@ -12,6 +12,7 @@ const AddGameForm = () => {
 			<Step1 />
 			<Step2 />
 			<Step3 />
+            <Submit />
 		</form>
     </>
   )
