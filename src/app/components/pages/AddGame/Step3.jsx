@@ -28,7 +28,7 @@ const Step3 = () => {
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
-			<Datepicker />
+			<Datepicker label="Fecha de la partida:" />
 			<Select label="Partida de campaña:" options={packsMock} defaultOption="No" />
 			<Input label="Url del mazo (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." />
 		</div>
