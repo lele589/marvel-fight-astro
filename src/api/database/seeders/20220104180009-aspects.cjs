@@ -5,27 +5,27 @@ module.exports = {
       [
         {
           aspect_type: "aggression",
-          aspect_name: "agresividad",
+          aspect_name: "Agresividad",
           aspect_color: "#940D14",
         },
         {
           aspect_type: "justice",
-          aspect_name: "justicia",
+          aspect_name: "Justicia",
           aspect_color: "#EBB408",
         },
         {
           aspect_type: "protection",
-          aspect_name: "protección",
+          aspect_name: "Protección",
           aspect_color: "#4DA01B",
         },
         {
           aspect_type: "leadership",
-          aspect_name: "liderazgo",
+          aspect_name: "Liderazgo",
           aspect_color: "#239C90",
         },
         {
           aspect_type: "basic",
-          aspect_name: "básico",
+          aspect_name: "Básico",
           aspect_color: "#7A8C88",
         },
       ],

@@ -26,31 +26,31 @@ const aspectsMock = [
 	{
 		"id": 1,
 		"type": "aggression",
-		"name": "agresividad",
+		"name": "Agresividad",
 		"color": "#940D14",
 	},
 	{
 		"id": 2,
 		"type": "justice",
-		"name": "justicia",
+		"name": "Justicia",
 		"color": "#EBB408",
 	},
 	{
 		"id": 3,
 		"type": "protection",
-		"name": "protección",
+		"name": "Protección",
 		"color": "#4DA01B",
 	},
 	{
 		"id": 4,
 		"type": "leadership",
-		"name": "liderazgo",
+		"name": "Liderazgo",
 		"color": "#239C90",
 	},
 	{
 		"id": 5,
 		"type": "basic",
-		"name": "básico",
+		"name": "Básico",
 		"color": "#7A8C88",
 	},
 ]
