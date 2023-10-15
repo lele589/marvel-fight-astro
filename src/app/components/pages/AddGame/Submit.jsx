@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-const Submit = ({ game, onSubmit }) => {
+const Submit = ({ onSubmit }) => {
     const [isLoading, setIsLoading] = useState(false);
     
     const handleSubmit = async () => {
         setIsLoading(true);
-        await onSubmit(game);
+        await onSubmit();
     };
     
+    // TODO: fix click styles
     return (
-        <div className="submit">
         <button
-            className="btn btn-primary btn-lg w-full"
+            className="btn btn-primary btn-lg rounded-none w-full"
             onClick={handleSubmit}
             disabled={isLoading}
         >
@@ -19,7 +19,6 @@ const Submit = ({ game, onSubmit }) => {
             <Spinner />
             ) : 'Siguiente'}
         </button>
-        </div>
     );
     }
 

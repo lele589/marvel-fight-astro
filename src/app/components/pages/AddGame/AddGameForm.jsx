@@ -8,11 +8,10 @@ const AddGameForm = () => {
   return (
     <>
         <Stepper />
-		<form class="mt-7">
-			<Step1 />
-			<Step2 />
-			<Step3 />
-            <Submit />
+		<form className="mt-7 mb-20">
+      <div className="fixed left-0 bottom-0 w-full">
+        <Submit onSubmit={handleSubmit} />
+      </div>
 		</form>
     </>
   )
