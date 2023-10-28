@@ -1,10 +1,10 @@
 const Input = ({ label, placeholder }) => {
   return(
-    <div class="my-4">
-      <label class="label">
-        <span class="label-text">{label}</span>
+    <div className="my-4">
+      <label className="label">
+        <span className="label-text">{label}</span>
       </label>
-      <input type="text" placeholder={placeholder} class="input input-bordered w-full" />
+      <input type="text" placeholder={placeholder} className="input input-bordered w-full" />
     </div>
   )
 } 

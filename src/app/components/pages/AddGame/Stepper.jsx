@@ -1,9 +1,9 @@
 const Stepper = () => {
   return (
-    <ul class="steps w-full">
-        <li class="step step-primary">Héroe</li>
-        <li class="step ">Villano</li>
-        <li class="step">Más info</li>
+    <ul className="steps w-full">
+        <li className="step step-primary">Héroe</li>
+        <li className="step ">Villano</li>
+        <li className="step">Más info</li>
     </ul>
   )
 }
