@@ -12,7 +12,7 @@ const getGamesList = async () => {
   } catch (error) {
     console.error(error);
     return new Response(
-      JSON.stringify({ error: "Internal server error", message: error }),
+      JSON.stringify({ error: true, code: "", message: error }),
       {
         status: 500,
         headers: {
@@ -51,7 +51,33 @@ const getGameByUserId = async (params) => {
   } catch (error) {
     console.error(error);
     return new Response(
-      JSON.stringify({ error: "Internal server error", message: error }),
+      JSON.stringify({ error: true, code: "", message: error }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
+};
+
+const createGame = async (request) => {
+  try {
+    const body = await request.json();
+    // TODO: validate body data
+
+    const game = await Game.create(body);
+    return new Response(JSON.stringify(game), {
+      status: 201,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(
+      JSON.stringify({ error: true, code: "", message: error }),
       {
         status: 500,
         headers: {
@@ -65,4 +91,5 @@ const getGameByUserId = async (params) => {
 export const gamesController = {
   getGamesList,
   getGameByUserId,
+  createGame,
 };

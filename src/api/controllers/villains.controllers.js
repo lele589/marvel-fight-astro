@@ -12,7 +12,7 @@ const getVillainsList = async () => {
   } catch (error) {
     console.error(error);
     return new Response(
-      JSON.stringify({ error: "Internal server error", message: error }),
+      JSON.stringify({ error: true, code: '', message: error }),
       {
         status: 500,
         headers: {
@@ -49,7 +49,7 @@ const getVillainById = async (params) => {
   } catch (error) {
     console.error(error);
     return new Response(
-      JSON.stringify({ error: "Internal server error", message: error }),
+      JSON.stringify({ error: true, code: '', message: error }),,
       {
         status: 500,
         headers: {
