@@ -1,24 +1,28 @@
 import { useState } from "react";
+import IconSpinner from "../../shared/icons/IconSpinner";
 
-const Submit = ({ onSubmit }) => {
+const Submit = ({ setActiveStep, activeStep }) => {
     const [isLoading, setIsLoading] = useState(false);
+
     
-    const handleSubmit = async () => {
+    const handleSubmit = () => {
         setIsLoading(true);
-        await onSubmit();
+        setActiveStep(activeStep + 1);
+        setIsLoading(false);
     };
+    
     
     // TODO: fix click styles
     return (
         <button
             className="btn btn-primary btn-lg rounded-none w-full"
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
             disabled={isLoading}
         >
             {isLoading ? (
-            <Spinner />
+            <IconSpinner />
             ) : 'Siguiente'}
-        </button>
+        </button> 
     );
     }
 
