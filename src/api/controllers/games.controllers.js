@@ -26,10 +26,10 @@ const getGamesList = async () => {
 const getGameByUserId = async (params) => {
   try {
     const gameUserId = params.userId;
-    const game = await Game.findOne({
+    const game = await Game.findAll({
       where: { game_user_id: gameUserId },
     });
-    if (!game) {
+    if (game.length === 0) {
       return new Response(
         JSON.stringify({
           error: `El usuario con ID:${gameUserId} no tiene partidas`,
