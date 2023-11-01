@@ -62,13 +62,27 @@ const gameModesMock = [
 	},
 ]
 
-const Step2 = () => {
+const Step2 = ({ setGameData }) => {
+
+	const handleVillainChange = (selectedOption) => {
+		setGameData({villain: selectedOption});
+	}  
+
+	const handleEncounterChange = (selectedOption) => {
+		setGameData({encounter: selectedOption});
+	}
+
+	const handleGameModeChange = (selectedOption) => {
+		setGameData({gameMode: selectedOption});
+	}
+
+
 	return(
 		<div>
 			<H2>¿Con qué Villano has jugado?</H2>
-			<Select label="Selecciona un villano:" options={villainsMock} />
-			<Select label="Selecciona un conjunto de encuentro:" options={encountersMock} />
-			<Select label="Selecciona la dificultad:" options={gameModesMock} />
+			<Select label="Selecciona un villano:" options={villainsMock} onChange={handleVillainChange} />
+			<Select label="Selecciona un conjunto de encuentro:" options={encountersMock} onChange={handleEncounterChange} />
+			<Select label="Selecciona la dificultad:" options={gameModesMock} onChange={handleGameModeChange} />
 		</div>
 	)
 }

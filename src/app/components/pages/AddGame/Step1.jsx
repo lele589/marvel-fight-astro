@@ -55,12 +55,20 @@ const aspectsMock = [
 	},
 ]
 
-const Step1 = () => {
+const Step1 = ({ setGameData }) => {
+	const handleHeroChange = (selectedOption) => {
+		setGameData({hero: selectedOption});
+	}  
+
+	const handleAspectChange = (selectedOption) => {
+		setGameData({aspect: selectedOption});
+	}
+
 	return(
 		<div>
 			<H2>¿Con qué Heroe has jugado?</H2>
-			<Select label="Selecciona un héroe:" options={heroesMock} />
-			<Select label="Selecciona un aspecto:" options={aspectsMock} />
+			<Select label="Selecciona un héroe:" options={heroesMock} onChange={handleHeroChange} />
+			<Select label="Selecciona un aspecto:" options={aspectsMock} onChange={handleAspectChange} />
 		</div>
 	)
 }

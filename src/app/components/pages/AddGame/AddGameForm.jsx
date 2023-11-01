@@ -5,25 +5,33 @@ import Step3 from "./Step3.jsx";
 import Stepper from "./Stepper.jsx";
 import Submit from "./Submit.jsx";
 import { STEPS } from "./constants.js";
+import { useAddGameFormStore } from "../../../store/addGameForm.js";
 
 const AddGameForm = () => {
+  const activeStep = useAddGameFormStore(state => state.activeStep);
+  const gameData = useAddGameFormStore(state => state.game);
+  const setGameData = useAddGameFormStore(state => state.setGameData);
+  const setActiveStep = useAddGameFormStore(state => state.setActiveStep);
 
-  const [activeStep, setActiveStep] = useState(STEPS.STEP1);
-
-  const handleSumbit = (event) => {
-    event.preventDefault();
+  const handleSumbit = () => {
     setActiveStep(activeStep + 1);
+    if (activeStep === STEPS.STEP3) {
+      // TODO: call createGame API
+      console.log('FINAL GAME DATA', gameData);
+      // TODO: redirect to index.astro page
+
+    }
   }
 
   return (
     <>
       <Stepper activeStep={activeStep} />
       <div className="mt-7 mb-20">
-        {activeStep === STEPS.STEP1 && <Step1 />}
-        {activeStep === STEPS.STEP2 && <Step2 />}
-        {activeStep === STEPS.STEP3 && <Step3 />}
+        {activeStep === STEPS.STEP1 && <Step1 client:load setGameData={setGameData} />}
+        {activeStep === STEPS.STEP2 && <Step2 client:load setGameData={setGameData} />}
+        {activeStep === STEPS.STEP3 && <Step3 client:load setGameData={setGameData} />}
         <div className="fixed left-0 bottom-0 w-full">
-          <Submit setActiveStep={setActiveStep} activeStep={activeStep} />
+          <Submit onSubmit={handleSumbit} />
         </div>
       </div>
     </>

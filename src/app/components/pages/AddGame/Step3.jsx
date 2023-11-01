@@ -3,34 +3,38 @@ import Datepicker from "./Datepicker.jsx";
 import Input from "./Input.jsx";
 import Select from "./Select.jsx";
 
-const packsMock = [
+const winnerOptions = [
 	{
 		"id": 1,
-		"code": "MC01",
-		"type": "Los guardianes de la galaxia",
-		"name": ""
+		"name": "Si"
 	},
 	{
 		"id": 2,
-		"pack_code": "MC01",
-		"name": "Cráneo Rojo",
-		"thumb": ""
+		"name": "No"
 	},
-	{
-		"id": 3,
-		"pack_code": "MC01",
-		"name": "La mano de Thanos",
-		"thumb": ""
-	}
 ]
 
-const Step3 = () => {
+const Step3 = ({ setGameData }) => {
+
+	const handleDateChange = (selectedOption) => {
+		setGameData({date: selectedOption});
+	}
+
+	const handleWinnerChange = (selectedOption) => {
+		const isWin = selectedOption === 'Si' ? true : false;
+		setGameData({isWin: isWin});
+	}
+
+	const handleDeckUrlChange = (selectedOption) => {
+		setGameData({deckUrl: selectedOption});
+	}
+
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
 			<Datepicker label="Fecha de la partida:" />
-			<Select label="Partida de campaña:" options={packsMock} defaultOption="No" />
-			<Input label="Url del mazo (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." />
+			<Select label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
+			<Input label="Url del mazo (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
 		</div>
 	)
 }
