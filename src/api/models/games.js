@@ -28,6 +28,7 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       game_date: {
+        allowNull: false,
         type: DataTypes.DATE,
       },
       game_is_win: {
