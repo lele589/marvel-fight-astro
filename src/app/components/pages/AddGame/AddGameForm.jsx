@@ -14,8 +14,10 @@ const AddGameForm = () => {
   const setActiveStep = useAddGameFormStore(state => state.setActiveStep);
 
   const handleSumbit = () => {
+    //TODO: change submit text in 3 step
     setActiveStep(activeStep + 1);
     if (activeStep === STEPS.STEP3) {
+      // TODO: validation all form completed
       // TODO: call createGame API
       console.log('FINAL GAME DATA', gameData);
       // TODO: redirect to index.astro page
@@ -25,13 +27,13 @@ const AddGameForm = () => {
 
   return (
     <>
-      <Stepper activeStep={activeStep} />
+      <Stepper activeStep={activeStep} setActiveStep={setActiveStep} />
       <div className="mt-7 mb-20">
         {activeStep === STEPS.STEP1 && <Step1 client:load setGameData={setGameData} />}
         {activeStep === STEPS.STEP2 && <Step2 client:load setGameData={setGameData} />}
         {activeStep === STEPS.STEP3 && <Step3 client:load setGameData={setGameData} />}
         <div className="fixed left-0 bottom-0 w-full">
-          <Submit onSubmit={handleSumbit} />
+          <Submit onSubmit={handleSumbit}  />
         </div>
       </div>
     </>

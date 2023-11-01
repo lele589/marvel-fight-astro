@@ -32,9 +32,9 @@ const Step3 = ({ setGameData }) => {
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
-			<Datepicker label="Fecha de la partida:" />
-			<Select label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
-			<Input label="Url del mazo (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
+			<Datepicker defaultOption="Cuándo jugaste..." label="Fecha:" />
+			<Select defaultOption="Selecciona..." label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
+			<Input label="Url (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
 		</div>
 	)
 }

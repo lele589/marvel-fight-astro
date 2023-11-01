@@ -67,8 +67,8 @@ const Step1 = ({ setGameData }) => {
 	return(
 		<div>
 			<H2>¿Con qué Heroe has jugado?</H2>
-			<Select label="Selecciona un héroe:" options={heroesMock} onChange={handleHeroChange} />
-			<Select label="Selecciona un aspecto:" options={aspectsMock} onChange={handleAspectChange} />
+			<Select defaultOption="Selecciona un héroe..." label="Héroe" options={heroesMock} onChange={handleHeroChange} />
+			<Select defaultOption="Selecciona un aspecto..." label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
 		</div>
 	)
 }

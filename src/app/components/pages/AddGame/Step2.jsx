@@ -80,9 +80,9 @@ const Step2 = ({ setGameData }) => {
 	return(
 		<div>
 			<H2>¿Con qué Villano has jugado?</H2>
-			<Select label="Selecciona un villano:" options={villainsMock} onChange={handleVillainChange} />
-			<Select label="Selecciona un conjunto de encuentro:" options={encountersMock} onChange={handleEncounterChange} />
-			<Select label="Selecciona la dificultad:" options={gameModesMock} onChange={handleGameModeChange} />
+			<Select defaultOption="Selecciona un villano..." label="Villano" options={villainsMock} onChange={handleVillainChange} />
+			<Select defaultOption="Selecciona un encuentro..." label="Conjunto de encuentro" options={encountersMock} onChange={handleEncounterChange} />
+			<Select defaultOption="Selecciona dificultad..." label="Dificultad" options={gameModesMock} onChange={handleGameModeChange} />
 		</div>
 	)
 }

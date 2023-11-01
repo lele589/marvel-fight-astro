@@ -16,7 +16,7 @@ const Select = ({ label, options, defaultOption, onChange }) => {
                 <span className="label-text">{label}</span>
             </label>
             <select className="select select-bordered w-full" onChange={handleSelectChange} value={selectedValue}>
-                {defaultOption && <option>{defaultOption}</option>}
+                {defaultOption && <option className="text-opacity-75" disabled>{defaultOption}</option>}
                 {options.map(option => (
                     <option key={option.name}>{option.name}</option>
                 ))}
