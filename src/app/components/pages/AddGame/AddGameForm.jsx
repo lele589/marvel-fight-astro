@@ -29,9 +29,9 @@ const AddGameForm = () => {
     <>
       <Stepper activeStep={activeStep} setActiveStep={setActiveStep} />
       <div className="mt-7 mb-20">
-        {activeStep === STEPS.STEP1 && <Step1 client:load setGameData={setGameData} />}
-        {activeStep === STEPS.STEP2 && <Step2 client:load setGameData={setGameData} />}
-        {activeStep === STEPS.STEP3 && <Step3 client:load setGameData={setGameData} />}
+        {activeStep === STEPS.STEP1 && <Step1 setGameData={setGameData} gameData={gameData} />}
+        {activeStep === STEPS.STEP2 && <Step2 setGameData={setGameData} gameData={gameData} />}
+        {activeStep === STEPS.STEP3 && <Step3 setGameData={setGameData} gameData={gameData} />}
         <div className="fixed left-0 bottom-0 w-full">
           <Submit onSubmit={handleSumbit}  />
         </div>
