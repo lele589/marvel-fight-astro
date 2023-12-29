@@ -55,9 +55,13 @@ const aspectsMock = [
 	},
 ]
 
-const Step1 = ({ setGameData }) => {
+const Step1 = ({ setGameData, gameData }) => {
+
+	const heroSpidermanOption = heroesMock[0];
+	const aspectAggressionOption = aspectsMock[0];
+
 	const handleHeroChange = (selectedOption) => {
-		setGameData({hero: selectedOption});
+		setGameData({hero: selectedOption });
 	}  
 
 	const handleAspectChange = (selectedOption) => {
@@ -67,8 +71,8 @@ const Step1 = ({ setGameData }) => {
 	return(
 		<div>
 			<H2>¿Con qué Heroe has jugado?</H2>
-			<Select defaultOption="Selecciona un héroe..." label="Héroe" options={heroesMock} onChange={handleHeroChange} />
-			<Select defaultOption="Selecciona un aspecto..." label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
+			<Select value={gameData.hero} defaultOption={heroSpidermanOption} label="Héroe" options={heroesMock} onChange={handleHeroChange} />
+			<Select value={gameData.aspect} defaultOption={aspectAggressionOption} label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
 		</div>
 	)
 }

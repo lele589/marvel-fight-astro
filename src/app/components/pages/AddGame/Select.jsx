@@ -1,22 +1,25 @@
-import{ useState } from 'react'
+import{ useState, useEffect } from 'react'
 
 const Select = ({ label, options, defaultOption, onChange }) => {
 
-    const [selectedValue, setSelectedValue] = useState(defaultOption);
+    const [selectedOption, setSelectedOption] = useState(defaultOption);
 
     const handleSelectChange = (event) => {
-        const selectedOption = event.target.value;
-        setSelectedValue(selectedOption);
+        const selectedOption = event.target.value;    
+        setSelectedOption(selectedOption);    
         onChange(selectedOption);
       };
+
+    useEffect(() => {
+        onChange(defaultOption);
+    }, []);  
 
     return(
         <div className="my-4">
             <label className="label">
                 <span className="label-text">{label}</span>
             </label>
-            <select className="select select-bordered w-full" onChange={handleSelectChange} value={selectedValue}>
-                {defaultOption && <option className="text-opacity-75" disabled>{defaultOption}</option>}
+            <select className="select select-bordered w-full" onChange={handleSelectChange} value={selectedOption}>
                 {options.map(option => (
                     <option key={option.name}>{option.name}</option>
                 ))}

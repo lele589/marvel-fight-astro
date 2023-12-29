@@ -14,7 +14,8 @@ const winnerOptions = [
 	},
 ]
 
-const Step3 = ({ setGameData }) => {
+const Step3 = ({ setGameData, gameData }) => {
+	const isWinnerOption = winnerOptions[0]
 
 	const handleDateChange = (selectedOption) => {
 		setGameData({date: selectedOption});
@@ -29,12 +30,13 @@ const Step3 = ({ setGameData }) => {
 		setGameData({deckUrl: selectedOption});
 	}
 
+
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
-			<Datepicker defaultOption="Cuándo jugaste..." label="Fecha:" />
-			<Select defaultOption="Selecciona..." label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
-			<Input label="Url (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
+			<Datepicker value={gameData.date} defaultOption="Cuándo jugaste..." label="Fecha:" />
+			<Select value={gameData.isWin} defaultOption={isWinnerOption} label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
+			<Input value={gameData.deckUrl} label="Url (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
 		</div>
 	)
 }
