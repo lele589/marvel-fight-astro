@@ -8,7 +8,7 @@ export const useAddGameFormStore = create((set) => ({
     aspect: "",
     villain: "",
     encounter: "",
-    difficulty: "",
+    gameMode: "",
     date: new Date(),
     isWin: false,
     deckUrl: "",
