@@ -37,6 +37,7 @@
     "zustand": "^4.4.4"
   },
   "devDependencies": {
-    "daisyui": "^3.7.3"
+    "daisyui": "^3.7.3",
+    "tailwind-datepicker-react": "^1.4.3"
   }
 }
