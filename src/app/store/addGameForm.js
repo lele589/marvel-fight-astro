@@ -9,7 +9,7 @@ export const useAddGameFormStore = create((set) => ({
     villain: "",
     encounter: "",
     gameMode: "",
-    date: new Date(),
+    date: null,
     isWin: false,
     deckUrl: "",
   },

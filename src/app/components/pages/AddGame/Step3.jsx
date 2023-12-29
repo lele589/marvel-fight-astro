@@ -1,5 +1,5 @@
 import H2 from "../../shared/Heading/H2.jsx";
-import Datepicker from "./Datepicker.jsx";
+import DateInput from "./DateInput.jsx";
 import Input from "./Input.jsx";
 import Select from "./Select.jsx";
 
@@ -34,7 +34,7 @@ const Step3 = ({ setGameData, gameData }) => {
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
-			<Datepicker value={gameData.date} defaultOption="Cuándo jugaste..." label="Fecha:" />
+			<DateInput value={gameData.date} label="Fecha:" onChange={handleDateChange} />
 			<Select value={gameData.isWin} defaultOption={isWinnerOption} label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
 			<Input value={gameData.deckUrl} label="Url (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
 		</div>
