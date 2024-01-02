@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Datepicker from "tailwind-datepicker-react"
 
 const datepickerOptions = {
@@ -12,7 +12,6 @@ const datepickerOptions = {
 		next: () => <span>{'>'}</span>,
 	},
 	datepickerClassNames: "top-12",
-	defaultDate: new Date(),
 	language: "es",
 	weekDays: ["L", "M", "X", "J", "V", "S", "D"],
 	inputNameProp: "date",
@@ -24,25 +23,31 @@ const datepickerOptions = {
 	}
 }
 
-const DateInput = ({ label, onChange }) => {
+const DateInput = ({ label, onChange, value }) => {
+	const [selectedDate, setSelectedDate] = useState(value || new Date());
+  	const [show, setShow] = useState(false)
 
-  const [show, setShow] = useState(false)
 	const handleDatepickerClose = (isCalendarShown) => {
 		setShow(isCalendarShown)
 	}
 
-  const handleDatepickerChange = (selectedDate) => {
-    onChange(selectedDate);
-  };
+	const handleDatepickerChange = (selectedDate) => {
+		setSelectedDate(selectedDate);
+		onChange(selectedDate);
+	};
 
-  return(
-    <div className="my-4">
-        <label className="label">
-          <span className="label-text">{label}</span>
-        </label>
-        <Datepicker options={datepickerOptions} onChange={handleDatepickerChange} show={show} setShow={handleDatepickerClose} />
-    </div>
-  )
+	useEffect(() => {
+        onChange(selectedDate);
+    }, []);  
+
+	return(
+		<div className="my-4">
+			<label className="label">
+			<span className="label-text">{label}</span>
+			</label>
+			<Datepicker value={selectedDate} options={datepickerOptions} onChange={handleDatepickerChange} show={show} setShow={handleDatepickerClose} />
+		</div>
+	)
 }
 
 export default DateInput

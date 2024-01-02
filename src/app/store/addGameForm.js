@@ -4,14 +4,14 @@ export const useAddGameFormStore = create((set) => ({
   // TODO: definir el tipo de los datos
   activeStep: 1,
   game: {
-    hero: "",
-    aspect: "",
-    villain: "",
-    encounter: "",
-    gameMode: "",
+    hero: null,
+    aspect: null,
+    villain: null,
+    encounter: null,
+    gameMode: null,
     date: null,
-    isWin: false,
-    deckUrl: "",
+    isWin: null,
+    deckUrl: null,
   },
   setActiveStep: (newStep) => set({ activeStep: newStep }),
   setGameData: (newGameInformation) =>

@@ -15,15 +15,19 @@ const winnerOptions = [
 ]
 
 const Step3 = ({ setGameData, gameData }) => {
-	const isWinnerOption = winnerOptions[0]
+	const defaultDate = new Date();
+	const defaultIsWin = winnerOptions[0];
+
+	const dateOption = gameData.date || defaultDate
+	const winnerOption = gameData.isWin || defaultIsWin
 
 	const handleDateChange = (selectedOption) => {
 		setGameData({date: selectedOption});
 	}
 
 	const handleWinnerChange = (selectedOption) => {
-		const isWin = selectedOption === 'Si' ? true : false;
-		setGameData({isWin: isWin});
+		const selectedIsWin = winnerOptions.find(option => option === selectedOption);
+		setGameData({isWin: selectedIsWin});
 	}
 
 	const handleDeckUrlChange = (selectedOption) => {
@@ -34,8 +38,8 @@ const Step3 = ({ setGameData, gameData }) => {
 	return(
 		<div>
 			<H2>Otros datos de la partida</H2>
-			<DateInput value={gameData.date} label="Fecha:" onChange={handleDateChange} />
-			<Select value={gameData.isWin} defaultOption={isWinnerOption} label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
+			<DateInput value={dateOption} label="Fecha:" onChange={handleDateChange} />
+			<Select value={winnerOption} label="¿Has ganado?" options={winnerOptions} onChange={handleWinnerChange} />
 			<Input value={gameData.deckUrl} label="Url (MarvelCDB):" placeholder="https://marvelcdb.com/decklist/view/32123/..." onChange={handleDeckUrlChange} />
 		</div>
 	)

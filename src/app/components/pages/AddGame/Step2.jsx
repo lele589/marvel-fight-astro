@@ -64,29 +64,36 @@ const gameModesMock = [
 
 const Step2 = ({ setGameData, gameData }) => {
 
-	const villainRinoOption = villainsMock[0];
-	const encounterBombOption = encountersMock[0];
-	const gameModeNormalOption = gameModesMock[0];
+	const defaultVillain = villainsMock[0];
+	const defaultEncounter = encountersMock[0];
+	const defaultGameMode = gameModesMock[0];
+
+	const villainOption = gameData.villain || defaultVillain;
+	const encounterOption = gameData.encounter || defaultEncounter;
+	const gameModeOption = gameData.gameMode || defaultGameMode;
 
 	const handleVillainChange = (selectedOption) => {
-		setGameData({villain: selectedOption});
+		const selectedVillain = villainsMock.find(villain => villain === selectedOption);
+		setGameData({villain: selectedVillain});
 	}  
 
 	const handleEncounterChange = (selectedOption) => {
-		setGameData({encounter: selectedOption});
+		const selectedEncounter = encountersMock.find(encounter => encounter === selectedOption);
+		setGameData({encounter: selectedEncounter});
 	}
 
 	const handleGameModeChange = (selectedOption) => {
-		setGameData({gameMode: selectedOption});
+		const selectedGameMode = gameModesMock.find(gameMode => gameMode === selectedOption);
+		setGameData({gameMode: selectedGameMode});
 	}
 
 
 	return(
 		<div>
 			<H2>¿Con qué Villano has jugado?</H2>
-			<Select value={gameData.villain} defaultOption={villainRinoOption} label="Villano" options={villainsMock} onChange={handleVillainChange} />
-			<Select value={gameData.encounter} defaultOption={encounterBombOption} label="Conjunto de encuentro" options={encountersMock} onChange={handleEncounterChange} />
-			<Select value={gameData.gameMode} defaultOption={gameModeNormalOption} label="Dificultad" options={gameModesMock} onChange={handleGameModeChange} />
+			<Select value={villainOption} label="Villano" options={villainsMock} onChange={handleVillainChange} />
+			<Select value={encounterOption} label="Conjunto de encuentro" options={encountersMock} onChange={handleEncounterChange} />
+			<Select value={gameModeOption} label="Dificultad" options={gameModesMock} onChange={handleGameModeChange} />
 		</div>
 	)
 }

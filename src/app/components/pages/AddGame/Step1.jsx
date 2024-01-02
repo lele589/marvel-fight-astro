@@ -56,23 +56,27 @@ const aspectsMock = [
 ]
 
 const Step1 = ({ setGameData, gameData }) => {
+	const defaultHero = heroesMock[0];
+	const defaultAspect = aspectsMock[0];
 
-	const heroSpidermanOption = heroesMock[0];
-	const aspectAggressionOption = aspectsMock[0];
+	const heroOption = gameData.hero || defaultHero;
+	const aspectOption = gameData.aspect || defaultAspect;
 
 	const handleHeroChange = (selectedOption) => {
-		setGameData({hero: selectedOption });
+		const selectedHero = heroesMock.find(hero => hero === selectedOption);
+		setGameData({hero: selectedHero });
 	}  
 
 	const handleAspectChange = (selectedOption) => {
-		setGameData({aspect: selectedOption});
+		const selectedAspect = aspectsMock.find(aspect => aspect === selectedOption);
+		setGameData({aspect: selectedAspect});
 	}
 
 	return(
 		<div>
 			<H2>¿Con qué Heroe has jugado?</H2>
-			<Select value={gameData.hero} defaultOption={heroSpidermanOption} label="Héroe" options={heroesMock} onChange={handleHeroChange} />
-			<Select value={gameData.aspect} defaultOption={aspectAggressionOption} label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
+			<Select value={heroOption} label="Héroe" options={heroesMock} onChange={handleHeroChange} />
+			<Select value={aspectOption} label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
 		</div>
 	)
 }
