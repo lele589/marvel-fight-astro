@@ -6,6 +6,7 @@ import Stepper from "./Stepper.jsx";
 import Submit from "./Submit.jsx";
 import { STEPS } from "./constants.js";
 import { useAddGameFormStore } from "../../../store/addGameForm.js";
+import { redirectToPathname } from "../../../utils/redirectToPathname.js";
 
 const AddGameForm = () => {
   const activeStep = useAddGameFormStore(state => state.activeStep);
@@ -20,7 +21,7 @@ const AddGameForm = () => {
       // TODO: validation all form completed
       // TODO: call createGame API
       console.log('FINAL GAME DATA', gameData);
-      // TODO: redirect to index.astro page
+      redirectToPathname('/')
 
     }
   }
