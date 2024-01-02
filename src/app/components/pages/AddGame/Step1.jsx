@@ -1,26 +1,7 @@
+import { useState, useEffect } from "react";
 import H2 from "../../shared/Heading/H2.jsx";
 import Select from "./Select.jsx";
-
-const heroesMock = [
-	{
-		"id": 1,
-		"pack_code": "MC01",
-		"name": "Spiderman",
-		"thumb": ""
-	},
-	{
-		"id": 2,
-		"pack_code": "MC01",
-		"name": "Capitana Marvel",
-		"thumb": ""
-	},
-	{
-		"id": 3,
-		"pack_code": "MC01",
-		"name": "Hulka",
-		"thumb": ""
-	}
-]
+import { useCases } from "../../../application/useCases/instances.js";
 
 const aspectsMock = [
 	{
@@ -56,14 +37,17 @@ const aspectsMock = [
 ]
 
 const Step1 = ({ setGameData, gameData }) => {
-	const defaultHero = heroesMock[0];
+	
+	const [heroes, setHeroes] = useState([]);
+	
+	const defaultHero = heroes[0];
 	const defaultAspect = aspectsMock[0];
 
 	const heroOption = gameData.hero || defaultHero;
 	const aspectOption = gameData.aspect || defaultAspect;
 
 	const handleHeroChange = (selectedOption) => {
-		const selectedHero = heroesMock.find(hero => hero === selectedOption);
+		const selectedHero = heroes.find(hero => hero === selectedOption);
 		setGameData({hero: selectedHero });
 	}  
 
@@ -72,10 +56,14 @@ const Step1 = ({ setGameData, gameData }) => {
 		setGameData({aspect: selectedAspect});
 	}
 
+	useEffect(() => {
+		useCases.searchHeroes().then(({ data: heroes }) => setHeroes(heroes))
+	}, []);
+
 	return(
 		<div>
 			<H2>¿Con qué Heroe has jugado?</H2>
-			<Select value={heroOption} label="Héroe" options={heroesMock} onChange={handleHeroChange} />
+			<Select value={heroOption} label="Héroe" options={heroes} onChange={handleHeroChange} />
 			<Select value={aspectOption} label="Aspecto" options={aspectsMock} onChange={handleAspectChange} />
 		</div>
 	)
